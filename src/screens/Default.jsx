@@ -1,15 +1,20 @@
-import Logo from '../components/Logo';
-import Description from '../components/Description';
-import Content from '../components/Content';
-import GitHub from '../components/GitHub';
+import Logo from './_components/Logo';
+import Description from './_components/Description';
+import OpenLink from '../components/OpenLink';
 
 const Default = () => {
   return (
     <header className="App-header">
       <Logo />
       <Description />
-      <GitHub />
-      <Content />
+      <OpenLink
+        title="Learn React"
+        url="https://reactjs.org"
+      />
+      <OpenLink
+        title="My React Proyect (GitHub)"
+        url="https://github.com/adhes14/desarrollo-frontend-react"
+      />
     </header>
   );
 };
