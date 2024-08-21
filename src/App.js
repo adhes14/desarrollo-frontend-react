@@ -1,13 +1,13 @@
 import './App.css';
 
-import Default from './screens/Default/Default';
-import Product from './screens/Product/Product';
+import Navbar from './components/Navbar';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <Default />
-      <Product />
+      <Navbar />
+      <Outlet />
     </div>
   );
 }
