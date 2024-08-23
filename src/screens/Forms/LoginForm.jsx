@@ -10,16 +10,25 @@ const LoginForm = () => {
 
   const [showModalinfo, setShowModalinfo] = useState(false);
   const [modalMessage, setModalMessage] = useState("Welcome to the jungle");
-
+  const [type, setType] = useState("");
+  
   const form = useSelector(state => state.form);
+  const password = useSelector(state => state.form.password);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
+    if (password !== values.password) {
+      setModalMessage("Invalid password");
+      setShowModalinfo(true);
+      setType("error");
+      return;
+    }
     dispatch(saveFormData(values));
     setModalMessage(`Form data saved successfully, Welcome ${values.username}!`);
     setShowModalinfo(true);
+    setType("success");
   }
 
   const hideModalinfo = () => {
@@ -27,7 +36,7 @@ const LoginForm = () => {
   };
   return (
     <>
-      <Modalinfo visible={showModalinfo} message={modalMessage} onClose={hideModalinfo} />
+      <Modalinfo visible={showModalinfo} message={modalMessage} type={type} onClose={hideModalinfo} />
       <motion.div
         initial={{opacity: 0, scale: 0.5}}
         animate={{opacity: 1, scale: 1}}

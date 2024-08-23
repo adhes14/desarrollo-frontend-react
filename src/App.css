@@ -133,19 +133,28 @@ form div input {
   z-index: 1000;
 }
 
-.notification-success {
-  background-color: #efd6bd;
-  color: #cc8259;
+.notification {
   padding: 2rem;
-  border: 1px solid #cc8259;
   border-radius: 0.5rem;
   max-width: 500px;
   width: 90%;
   text-align: center;
   position: relative;
+
+  &.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #155724;
+  }
+
+  &.error {
+    background-color: #efd6bd;
+    color: #cc8259;
+    border: 1px solid #cc8259;
+  }
 }
 
-.close-btn-success {
+.close-btn {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
