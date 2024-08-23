@@ -3,6 +3,7 @@ import { SET_FORM_DATA } from './formTypes';
 const initialState = {
   formData: {
     email: "",
+    username: "",
     password: "",
   },
 };
