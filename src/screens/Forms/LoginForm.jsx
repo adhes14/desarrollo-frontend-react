@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const LoginForm = () => {
   const [values, handleChange] = useForm({ email: "", password: "", username: "" });
+  const [showPassword, setShowPassword] = useState(false);
 
   const [showModalinfo, setShowModalinfo] = useState(false);
   const [modalMessage, setModalMessage] = useState("Welcome to the jungle");
@@ -33,6 +34,11 @@ const LoginForm = () => {
   const hideModalinfo = () => {
     setShowModalinfo(false);
   };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <>
       <Modalinfo visible={showModalinfo} message={modalMessage} type={type} onClose={hideModalinfo} />
@@ -57,7 +63,10 @@ const LoginForm = () => {
             </div>
             <div>
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" id="password" value={values.password} onChange={handleChange} />
+              <input type={showPassword ? "text" : "password"} name="password" id="password" value={values.password} onChange={handleChange} />
+              <button type="button" onClick={togglePasswordVisibility}>
+                {showPassword ? "🙈" : "👁️"}
+              </button>
             </div>
             <div className="button-container">
               <button type="submit">Login</button>
