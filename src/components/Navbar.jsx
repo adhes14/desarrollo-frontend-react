@@ -18,7 +18,9 @@ const Navbar = () => {
       </ul>
       <ul>
         {username ? (
-          <p>Welcome {username}: {email}</p>
+          <li>
+            <Link to="/login">Welcome {username}: {email}</Link>
+          </li>
         ) : (
           <li>
             <Link to="/login">Login</Link>

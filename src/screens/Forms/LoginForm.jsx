@@ -31,6 +31,12 @@ const LoginForm = () => {
     setType("success");
   }
 
+  const handleLogout = () => {
+    setModalMessage(`${form.formData.username}, are you sure you want to logout?`);
+    setShowModalinfo(true);
+    setType("logout");
+  }
+
   const hideModalinfo = () => {
     setShowModalinfo(false);
   };
@@ -68,9 +74,13 @@ const LoginForm = () => {
                 {showPassword ? "🙈" : "👁️"}
               </button>
             </div>
-            <div className="button-container">
-              <button type="submit">Login</button>
-            </div>
+            {form.formData.username ? (
+              <a className="App-link logout" onClick={handleLogout}>Logout</a>
+            ) : (
+              <div className="button-container">
+                <button type="submit">Login</button>
+              </div>
+            )}
           </form>
         </div>
       </motion.div>
