@@ -6,7 +6,7 @@ import Modalinfo from "../../components/Modalinfo";
 import { useState } from "react";
 
 const LoginForm = () => {
-  const [values, handleChange] = useForm({ email: "", password: "", username: "" });
+  const [values, handleChange, resetForm] = useForm({ email: "", password: "", username: "" });
   const [showPassword, setShowPassword] = useState(false);
 
   const [showModalinfo, setShowModalinfo] = useState(false);
@@ -37,8 +37,9 @@ const LoginForm = () => {
     setType("logout");
   }
 
-  const hideModalinfo = () => {
+  const hideModalinfo = (logout) => {
     setShowModalinfo(false);
+    if (logout === 'logout') resetForm();
   };
 
   const togglePasswordVisibility = () => {

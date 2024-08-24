@@ -6,7 +6,7 @@ const Modalinfo = ({ visible, message, type, onClose }) => {
   const dispatch = useDispatch();
   const logout = () => {
     dispatch(saveFormData({ email: "", password: "", username: "" }));
-    onClose();
+    onClose('logout');
   };
 
   if (!visible) {
