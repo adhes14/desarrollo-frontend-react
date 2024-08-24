@@ -13,13 +13,12 @@ const LoginForm = () => {
   const [type, setType] = useState("");
   
   const form = useSelector(state => state.form);
-  const password = useSelector(state => state.form.password);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
-    if (password !== values.password) {
+    if (form.password !== values.password) {
       setModalMessage("Invalid password");
       setShowModalinfo(true);
       setType("error");
